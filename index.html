@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessibilidade - Ferramentas Acessíveis</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="menu-acessibilidade">
+        <div>
+            <button id="preto-e-branco">
+                <img src="images/preto_e_branco.png" alt="Ativar modo preto e branco" class="icone">
+            </button>
+        </div>
+        <div>
+            <button id="aumentar-texto">
+                <img src="images/a_mais.png" alt="Aumentar texto" class="icone">
+            </button>
+        </div>
+        <div>
+            <button id="diminuir-texto">
+                <img src="images/a_menos.png" alt="Diminuir texto" class="icone">
+            </button>
+        </div>
+        <div>
+            <button id="alto-contraste">
+                <img src="images/alto_contraste.png" alt="Ativar alto contraste" class="icone">
+            </button>
+        </div>
+        <div>
+            <button>
+                <img src="images/libras.png" alt="Ativar tradução para Libras" class="icone">
+            </button>
+        </div>
+        <div>
+            <button>
+                <img src="images/voz.png" alt="Ativar leitura de voz" class="icone">
+            </button>
+        </div>
+    </div>
+
+    <h1>Teste de ferramentas ACD</h1>
+    <br>
+    <a href="#">Clique aqui</a>
+    <img src="images/imagem.webp" alt="Acessibilidade">
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+
+    <script>
+    window.onload = function () {
+        const corpoDaPagina = document.querySelector('body');
+        const aumentarTexto = document.getElementById('aumentar-texto');
+        const diminuirTexto = document.getElementById('diminuir-texto');
+        const btnPretoBranco = document.getElementById("preto-e-branco");
+        const btnAltoContraste = document.getElementById("alto-contraste");
+
+        let fontSize = 100; // tamanho inicial da fonte em porcentagem
+        const qntAumentarDiminuir = 10;
+
+        // Modo preto e branco
+        btnPretoBranco.addEventListener("click", () => {
+            document.body.classList.toggle("preto-branco");
+        });
+
+        // Modo alto contraste
+        btnAltoContraste.addEventListener("click", () => {
+            document.body.classList.toggle("alto-contraste");
+        });
+
+        // Aumentar fonte
+        aumentarTexto.addEventListener("click", () => {
+            fontSize += qntAumentarDiminuir;
+            corpoDaPagina.style.fontSize = fontSize + '%';
+        });
+
+        // Diminuir fonte
+        diminuirTexto.addEventListener("click", () => {
+            if (fontSize > 50) {
+                fontSize -= qntAumentarDiminuir;
+                corpoDaPagina.style.fontSize = fontSize + '%';
+            }
+        });
+    };
+    
+    </script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
+</body>
+</html>
